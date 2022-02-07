@@ -20,5 +20,11 @@ const userSchema = new Schema(
         ref: 'reaction',
       },
     ],
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'user',
+      },
+    ],
   },
 )
