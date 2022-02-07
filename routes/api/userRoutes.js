@@ -1,6 +1,13 @@
 const router = require('express').Router();
 const {
   // TODO: Add destructured components in controller
+  getUsers,
+  createUser,
+  getUserById,
+  updateUser,
+  deleteUser,
+  addFriend,
+  deleteFriend
 } = require('../../controllers/userController');
 
 // TODO: Add controller component into get and post
