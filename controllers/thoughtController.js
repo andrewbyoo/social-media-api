@@ -11,7 +11,16 @@ module.exports = {
       .then((newThought) => res.status(200).json(newThought))
       .catch((err) => res.status(500).json(err));
   },
-  getThoughtById(req, res) {},
+  getThoughtById(req, res) {
+    Thought.findOne({ _id: req.params.thoughtId })
+      .select('-__v')
+      .then((thought) =>
+        !thought
+          ? res.status(400).json({ message: 'No thought with that ID' })
+          : res.status(200).json(thought)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
   updateThought(req, res) {},
   deleteThought(req, res) {},
   addReaction(req, res) {},
