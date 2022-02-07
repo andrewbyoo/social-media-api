@@ -6,7 +6,11 @@ module.exports = {
       .then((users) => res.status(200).json(users))
       .catch((err) => res.status(500).json(err));
   },
-  createUser(req, res) {},
+  createUser(req, res) {
+    User.create(req.body)
+      .then((newUser) => res.status(200).json(newUser))
+      .catch((err) => res.status(500).json(err));
+  },
   getUserById(req, res) {},
   updateUser(req, res) {},
   deleteUser(req, res) {},
