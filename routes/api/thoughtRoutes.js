@@ -1,6 +1,12 @@
 const router = require('express').Router();
 const {
-  // TODO: Add destructured components in controller
+  getThoughts,
+  createThought,
+  getThoughtById,
+  updateThought,
+  deleteThought,
+  addReaction,
+  deleteReaction
 } = require('../../controllers/thoughtController');
 
 // TODO: Add controller component into get and post
