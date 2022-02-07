@@ -11,7 +11,16 @@ module.exports = {
       .then((newUser) => res.status(200).json(newUser))
       .catch((err) => res.status(500).json(err));
   },
-  getUserById(req, res) {},
+  getUserById(req, res) {
+    User.findOne({ _id: req.params.userId })
+      .select('-__v')
+      .then((user) =>
+        !user
+          ? res.status(400).json({ message: 'No user with that ID' })
+          : res.json(user)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
   updateUser(req, res) {},
   deleteUser(req, res) {},
   addFriend(req, res) {},
