@@ -27,7 +27,15 @@ module.exports = {
       { $set: req.body },
     )
   },
-  deleteThought(req, res) {},
+  deleteThought(req, res) {
+    Thought.findOneAndRemove({ _id: req.params.thoughtId })
+      .then((deletedThought) =>
+        !deletedThought
+          ? res.status(404).json({ message: 'No thought with that ID' })
+          : res.status(200).json(deletedThought)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
   addReaction(req, res) {},
   deleteReaction(req, res) {},
 };
