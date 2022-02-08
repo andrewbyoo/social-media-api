@@ -21,7 +21,12 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-  updateThought(req, res) {},
+  updateThought(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $set: req.body },
+    )
+  },
   deleteThought(req, res) {},
   addReaction(req, res) {},
   deleteReaction(req, res) {},
