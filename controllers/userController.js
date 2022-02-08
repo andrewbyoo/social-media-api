@@ -73,5 +73,10 @@ module.exports = {
           : res.status(200).json(deletedFriend)
       )
       .catch((err) => res.status(500).json(err));
+
+    User.findOneAndUpdate(
+      { _id: req.params.friendId },
+      { $pull: { friends: { _id: req.params.userId } } }
+    )
   },
 };
