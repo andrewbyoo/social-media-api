@@ -8,11 +8,12 @@ const reactionData = require('./thoughtData.json');
 connection.on('error', (err) => err);
 
 connection.once('open', async () => {
-  console.log('connected');
-
   await Thought.deleteMany({});
   await User.deleteMany({});
 
   await Thought.collection.insertMany(thoughtData);
   await User.collection.insertMany(userData);
+
+  console.info('User and Thought collections have been seeded.')
+  process.exit(0);
 });
