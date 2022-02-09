@@ -65,12 +65,7 @@ const thoughtData = [
     "_id": ObjectId("62030f6c64fba167d8adc052"),
     "thoughtText": "Why am I inside this person's head?",
     "username": "Johnny",
-    "reactions": [
-      {
-        "reactionBody": "WHO IS IN MY HEAD?!",
-        "username": "Andrew",
-      }
-    ]
+    "reactions": []
   },
   {
     "_id": ObjectId("62030f6c64fba167d8adc053"),
@@ -82,16 +77,7 @@ const thoughtData = [
     "_id": ObjectId("62030f6c64fba167d8adc054"),
     "thoughtText": "Guns. LOTS of guns.",
     "username": "Thomas",
-    "reactions": [
-      {
-        "reactionBody": "Now we're talkin'",
-        "username": "Johnny"
-      },
-      {
-        "reactionBody": "Hey! That's my line!",
-        "username": "John"
-      }
-    ]
+    "reactions": []
   },
   {
     "_id": ObjectId("62030f6c64fba167d8adc055"),
@@ -107,4 +93,4 @@ const thoughtData = [
   }
 ]
 
-module.exports = { userData, thoughtData }
+module.exports = { userData, thoughtData };
