@@ -1,7 +1,7 @@
 const connection = require('../config/connection');
 const { User, Thought } = require('../models');
 
-const {  } = require('./data');
+const { userData, thoughtData } = require('./data');
 
 connection.on('error', (err) => err);
 
