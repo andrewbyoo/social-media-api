@@ -5,7 +5,7 @@ module.exports = {
     User.find()
       .lean()
       .populate('thoughts', '-username -__v')
-      .populate('friends', '_id username -__v')
+      .populate('friends', '_id username')
       .select('-__v')
       .then((users) => res.status(200).json(users))
       .catch((err) => res.status(500).json(err));
@@ -19,7 +19,7 @@ module.exports = {
     User.findOne({ _id: req.params.userId })
       .lean()
       .populate('thoughts', '-username -__v')
-      .populate('friends', '_id username -__v')
+      .populate('friends', '_id username')
       .select('-__v')
       .then((user) =>
         !user
