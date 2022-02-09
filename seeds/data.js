@@ -67,6 +67,7 @@ const thoughtData = [
     "username": "Johnny",
     "reactions": [
       {
+        "reactionId": ObjectId("6203284d069fe09c6911fe47"),
         "reactionBody": "WHO IS IN MY HEAD?!",
         "username": "Andrew",
       }
@@ -84,10 +85,12 @@ const thoughtData = [
     "username": "Thomas",
     "reactions": [
       {
+        "reactionId": ObjectId("6203284d069fe09c6911fe49"),
         "reactionBody": "Now we're talkin'",
         "username": "Johnny"
       },
       {
+        "reactionId": ObjectId("6203284d069fe09c6911fe4b"),
         "reactionBody": "Hey! That's my line!",
         "username": "John"
       }
