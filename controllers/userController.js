@@ -83,11 +83,6 @@ module.exports = {
       { _id: req.params.friendId },
       { $pull: { friends: req.params.userId } }
     )
-      .then((deletedFriend) =>
-        !deletedFriend
-          ? console.log('No user with that ID')
-          : console.log('The friend relationship has been removed')
-      )
       .catch((err) => res.status(500).json(err))
   },
 };
