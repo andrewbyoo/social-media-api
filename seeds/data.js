@@ -5,6 +5,10 @@ const userData = [
     "_id": ObjectId("62030f6c64fba167d8adc058"),
     "username": "Johnny",
     "email": "JSilverhand@cyberpunk.com",
+    "thoughts": [
+      ObjectId("62030f6c64fba167d8adc052"),
+      ObjectId("62030f6c64fba167d8adc053")
+    ],
     "friends": [
       ObjectId("62030f6c64fba167d8adc05c"),
       ObjectId("62030f6c64fba167d8adc05b")
@@ -14,6 +18,9 @@ const userData = [
     "_id": ObjectId("62030f6c64fba167d8adc059"),
     "username": "Thomas",
     "email": "neo@thematrix.com",
+    "thoughts": [
+      ObjectId("62030f6c64fba167d8adc054")
+    ],
     "friends": [
       ObjectId("62030f6c64fba167d8adc05c")
     ]
@@ -22,6 +29,9 @@ const userData = [
     "_id": ObjectId("62030f6c64fba167d8adc05a"),
     "username": "John",
     "email": "johnwick@example.com",
+    "thoughts": [
+      ObjectId("62030f6c64fba167d8adc055")
+    ],
     "friends": [
       ObjectId("62030f6c64fba167d8adc05c")
     ]
@@ -30,6 +40,7 @@ const userData = [
     "_id": ObjectId("62030f6c64fba167d8adc05b"),
     "username": "Andrew",
     "email": "andrewbyoo@gmail.com",
+    "thoughts": [],
     "friends": [
       ObjectId("62030f6c64fba167d8adc058")
     ]
@@ -38,6 +49,9 @@ const userData = [
     "_id": ObjectId("62030f6c64fba167d8adc05c"),
     "username": "Keanu",
     "email": "keanureeves@example.com",
+    "thoughts": [
+      ObjectId("62030f6c64fba167d8adc056")
+    ],
     "friends": [
       ObjectId("62030f6c64fba167d8adc058"),
       ObjectId("62030f6c64fba167d8adc059"),
