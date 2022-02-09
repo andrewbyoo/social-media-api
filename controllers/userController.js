@@ -3,6 +3,9 @@ const { User } = require('../models');
 module.exports = {
   getUsers(req, res) {
     User.find()
+      .lean()
+      .populate('thoughts', '-username')
+      .populate('friends', '_id username')
       .then((users) => res.status(200).json(users))
       .catch((err) => res.status(500).json(err));
   },
@@ -13,7 +16,9 @@ module.exports = {
   },
   getUserById(req, res) {
     User.findOne({ _id: req.params.userId })
-      .select('-__v')
+      .lean()
+      .populate('thoughts', '-username')
+      .populate('friends', '_id username')
       .then((user) =>
         !user
           ? res.status(400).json({ message: 'No user with that ID' })
@@ -64,7 +69,7 @@ module.exports = {
   deleteFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
-      { $pull: { friends: { _id: req.params.friendId } } },
+      { $pull: { friends: req.params.friendId } },
       { new: true }
     )
       .then((deletedFriend) =>
@@ -76,7 +81,13 @@ module.exports = {
 
     User.findOneAndUpdate(
       { _id: req.params.friendId },
-      { $pull: { friends: { _id: req.params.userId } } }
+      { $pull: { friends: req.params.userId } }
     )
+      .then((deletedFriend) =>
+        !deletedFriend
+          ? console.log('No user with that ID')
+          : console.log('The friend relationship has been removed')
+      )
+      .catch((err) => res.status(500).json(err))
   },
 };
