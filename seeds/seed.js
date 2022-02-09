@@ -12,4 +12,7 @@ connection.once('open', async () => {
 
   await Thought.deleteMany({});
   await User.deleteMany({});
+
+  await Thought.collection.insertMany(thoughtData);
+  await User.collection.insertMany(userData);
 });
