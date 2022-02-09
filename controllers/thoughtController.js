@@ -36,6 +36,12 @@ module.exports = {
       { $set: req.body },
       { runValidators: true, new: true }
     )
+      .then((updatedThought) =>
+        !updatedThought
+          ? res.status(404).json({ message: 'No thought with that ID' })
+          : res.status(200).json(updatedThought)
+      )
+      .catch((err) => res.status(500).json(err));
   },
   deleteThought(req, res) {
     Thought.findOneAndRemove({ _id: req.params.thoughtId })
