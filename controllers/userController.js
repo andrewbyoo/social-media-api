@@ -83,6 +83,8 @@ module.exports = {
       { _id: req.params.friendId },
       { $pull: { friends: req.params.userId } }
     )
-      .catch((err) => res.status(500).json(err))
+      .catch(
+        // Errors already handled through the other findOneAndUpdate request
+      )
   },
 };
