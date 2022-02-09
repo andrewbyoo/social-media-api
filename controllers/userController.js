@@ -65,6 +65,9 @@ module.exports = {
       { _id: req.body._id },
       { $addToSet: { friends: req.params.userId } }
     )
+      .catch(
+        // Errors already handled through the other findOneAndUpdate request
+      )
   },
   deleteFriend(req, res) {
     User.findOneAndUpdate(
