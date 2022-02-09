@@ -64,27 +64,46 @@ const thoughtData = [
   {
     "_id": ObjectId("62030f6c64fba167d8adc052"),
     "thoughtText": "Why am I inside this person's head?",
-    "username": "Johnny"
+    "username": "Johnny",
+    "reactions": [
+      {
+        "reactionBody": "WHO IS IN MY HEAD?!",
+        "username": "Andrew",
+      }
+    ]
   },
   {
     "_id": ObjectId("62030f6c64fba167d8adc053"),
     "thoughtText": "Where is my guitar?",
-    "username": "Johnny"
+    "username": "Johnny",
+    "reactions": []
   },
   {
     "_id": ObjectId("62030f6c64fba167d8adc054"),
     "thoughtText": "Guns. LOTS of guns.",
-    "username": "Thomas"
+    "username": "Thomas",
+    "reactions": [
+      {
+        "reactionBody": "Now we're talkin'",
+        "username": "Johnny"
+      },
+      {
+        "reactionBody": "Hey! That's my line!",
+        "username": "John"
+      }
+    ]
   },
   {
     "_id": ObjectId("62030f6c64fba167d8adc055"),
     "thoughtText": "Everything's got a price.",
-    "username": "John"
+    "username": "John",
+    "reactions": []
   },
   {
     "_id": ObjectId("62030f6c64fba167d8adc056"),
     "thoughtText": "The simple act of paying attention can take you a long way.",
-    "username": "Keanu"
+    "username": "Keanu",
+    "reactions": []
   }
 ]
 
