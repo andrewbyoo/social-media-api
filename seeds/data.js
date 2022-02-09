@@ -4,27 +4,45 @@ const userData = [
   {
     "_id": ObjectId("62030f6c64fba167d8adc058"),
     "username": "Johnny",
-    "email": "JSilverhand@cyberpunk.com"
+    "email": "JSilverhand@cyberpunk.com",
+    "friends": [
+      ObjectId("62030f6c64fba167d8adc05c"),
+      ObjectId("62030f6c64fba167d8adc05b")
+    ]
   },
   {
     "_id": ObjectId("62030f6c64fba167d8adc059"),
     "username": "Thomas",
-    "email": "neo@thematrix.com"
+    "email": "neo@thematrix.com",
+    "friends": [
+      ObjectId("62030f6c64fba167d8adc05c")
+    ]
   },
   {
     "_id": ObjectId("62030f6c64fba167d8adc05a"),
     "username": "John",
-    "email": "johnwick@example.com"
+    "email": "johnwick@example.com",
+    "friends": [
+      ObjectId("62030f6c64fba167d8adc05c")
+    ]
   },
   {
     "_id": ObjectId("62030f6c64fba167d8adc05b"),
     "username": "Andrew",
-    "email": "andrewbyoo@gmail.com"
+    "email": "andrewbyoo@gmail.com",
+    "friends": [
+      ObjectId("62030f6c64fba167d8adc058")
+    ]
   },
   {
     "_id": ObjectId("62030f6c64fba167d8adc05c"),
     "username": "Keanu",
-    "email": "keanureeves@example.com"
+    "email": "keanureeves@example.com",
+    "friends": [
+      ObjectId("62030f6c64fba167d8adc058"),
+      ObjectId("62030f6c64fba167d8adc059"),
+      ObjectId("62030f6c64fba167d8adc05a")
+    ]
   }
 ]
 
