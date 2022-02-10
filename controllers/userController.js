@@ -28,12 +28,14 @@ module.exports = {
     User.findOneAndUpdate(
       { _id: req.params.userId },
       { $set: req.body },
-      { runValidators: true, new: true }
+      { runValidators: true }
     )
       .then((updatedUser) =>
         !updatedUser
           ? res.status(404).json({ message: 'No user with that ID' })
-          : res.status(200).json(updatedUser)
+          : Thought.updateMany({ username: updatedUser.username }, { username: req.body.username })
+            .then(res.status(200).json({ message: 'The user has been updated!' }))
+            .catch((err) => res.status(500).json(err))
       )
       .catch((err) => res.status(500).json(err));
   },
@@ -43,7 +45,7 @@ module.exports = {
         !deletedUser
           ? res.status(404).json({ message: 'No user with that ID' })
           : Thought.deleteMany({ _id: { $in: deletedUser.thoughts } })
-            .then((deletedThoughts) => res.status(200).json(deletedUser))
+            .then(res.status(200).json({ message: 'The user has been removed!' }))
             .catch((err) => res.status(500).json(err))
       )
       .catch((err) => res.status(500).json(err));
@@ -57,7 +59,7 @@ module.exports = {
       .then((newFriend) =>
         !newFriend
           ? res.status(404).json({ message: 'No user with that ID' })
-          : res.status(200).json(newFriend)
+          : res.status(200).json({ message: 'The users are now friends!' })
       )
       .catch((err) => res.status(500).json(err));
 
@@ -78,7 +80,7 @@ module.exports = {
       .then((deletedFriend) =>
         !deletedFriend
           ? res.status(404).json({ message: 'No user with that ID' })
-          : res.status(200).json(deletedFriend)
+          : res.status(200).json({ message: 'The friend has been removed!' })
       )
       .catch((err) => res.status(500).json(err));
 
