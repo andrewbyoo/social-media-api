@@ -15,7 +15,7 @@ module.exports = {
           { $addToSet: { thoughts: newThought._id } },
           { new: true }
         )
-          .then((newThought) => res.status(200).json(newThought))
+          .then(res.status(200).json(newThought))
           .catch((err) => res.status(500).json(err));
       })
       .catch((err) => res.status(500).json(err));
@@ -39,7 +39,7 @@ module.exports = {
       .then((updatedThought) =>
         !updatedThought
           ? res.status(404).json({ message: 'No thought with that ID' })
-          : res.status(200).json(updatedThought)
+          : res.status(200).json({ message: 'The thought has been updated!' })
       )
       .catch((err) => res.status(500).json(err));
   },
@@ -48,7 +48,7 @@ module.exports = {
       .then((deletedThought) =>
         !deletedThought
           ? res.status(404).json({ message: 'No thought with that ID' })
-          : res.status(200).json(deletedThought)
+          : res.status(200).json({ message: 'The thought has been deleted!' })
       )
       .catch((err) => res.status(500).json(err));
   },
@@ -74,7 +74,7 @@ module.exports = {
       .then((deletedReaction) =>
         !deletedReaction
           ? res.status(404).json({ message: 'No thought with that ID' })
-          : res.status(200).json(deletedReaction)
+          : res.status(200).json({ message: 'The reaction has been deleted!' })
       )
       .catch((err) => res.status(500).json(err));
   },
