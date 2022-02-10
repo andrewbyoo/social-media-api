@@ -1,11 +1,9 @@
-const { User } = require('../models');
+const { User, Thought } = require('../models');
 
 module.exports = {
   getUsers(req, res) {
     User.find()
-      .lean()
-      .populate('thoughts', '-username -__v')
-      .populate('friends', '_id username')
+      .populate('thoughts friends')
       .select('-__v')
       .then((users) => res.status(200).json(users))
       .catch((err) => res.status(500).json(err));
@@ -17,9 +15,7 @@ module.exports = {
   },
   getUserById(req, res) {
     User.findOne({ _id: req.params.userId })
-      .lean()
-      .populate('thoughts', '-username -__v')
-      .populate('friends', '_id username')
+      .populate('thoughts friends')
       .select('-__v')
       .then((user) =>
         !user
@@ -46,7 +42,9 @@ module.exports = {
       .then((deletedUser) =>
         !deletedUser
           ? res.status(404).json({ message: 'No user with that ID' })
-          : res.status(200).json(deletedUser)
+          : Thought.deleteMany({ _id: { $in: deletedUser.thoughts } })
+            .then((deletedThoughts) => res.status(200).json(deletedUser))
+            .catch((err) => res.status(500).json(err))
       )
       .catch((err) => res.status(500).json(err));
   },
